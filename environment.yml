@@ -1,0 +1,20 @@
+name: solvers-test
+
+channels:
+  - conda-forge
+  - defaults
+  - pytorch
+dependencies:
+  - numpy
+  - scipy=1.13.0
+  - matplotlib
+  - mkl
+  - pip
+  - pydiso=0.0.5
+  - pytorch=2.1.2
+  - pytorch-cuda=11.8
+  - geoana=0.4.0
+  - discretize=0.10.0
+  - SimPEG=0.21.1
+  - cupy=13.1.0
+
