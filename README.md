@@ -1,5 +1,4 @@
-# simpeg_gpu_solvers
-Testing GPU solvers in SimPEG using CuPy and PyTorch
+# Testing GPU solvers in SimPEG using CuPy and PyTorch
 
 Typically, MKL Pardiso solver (via Pydiso) is the preffered solver for running simulations in SimPEG. 
 
@@ -19,3 +18,4 @@ CuPy accounts for the slow matrix factorization on GPU by purportedly doing LU f
 
 ## TODO
 - Add install instructions
+- Add references
