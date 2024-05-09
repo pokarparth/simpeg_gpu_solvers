@@ -2,7 +2,7 @@
 
 Typically, MKL Pardiso solver (via Pydiso) is the preffered solver for running simulations in SimPEG. 
 
-Large speedups are possible for certain matrix operations using GPUs (https://cupy.dev). Whether solving $ **Ax = b** $ type problems involving matrix factorization of **A** and matrix-vector products encountered in geophysics are faster using GPUs. Here, LU solvers from CuPy and PyTorch are used to solve on GPUs compared against Pardiso and default SimPEG solver which uses SciPy.
+Large speedups are possible for certain matrix operations using GPUs (https://cupy.dev). I test whether solving $ **Ax = b** $ type problems involving matrix factorization of **A** and matrix-vector products encountered in geophysics are faster using GPUs. Here, LU solvers from CuPy and PyTorch are used to solve on GPUs compared against Pardiso and default SimPEG solver which uses SciPy.
 
 #### Results:
 For a problem **AX=b** with **A** matrix of size (28564, 28564) and _b_ of size 108
