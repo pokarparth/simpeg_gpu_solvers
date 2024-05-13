@@ -15,7 +15,23 @@ Pardiso outperforms alternatives here. While matrix-vector products are faster o
 
 CuPy accounts for the slow matrix factorization on GPU by purportedly doing LU factorization on CPU using SciPy's LU routines and doing the matrix-vector products on GPUs. However, it was significantly slower in the tests. I attribute the slow performance of CuPy here to the fact that the CuPy solver operations are not yet implemented for sparse matrices and thus it factorizes a dense matrix. OTOH, Pardiso and SimPEG solvers use sparse CSR matrices. 
 
+## Installation instructions
+To run the project, follow these installation instructions:
+
+1. Create a conda environment using the provided environment.yml file:
+
+    ```
+    conda env create -f environment.yml
+    ```
+
+2. Copy files `solver_utils_cupy.py` and `solver_utils_pytorch.py` from `simpeg_utils` folder and paste it in the installed SimPEG package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\SimPEG\utils`.
+
+3. Copy the file `matrix_utils_cupy.py` from `discretize_edits` folder and paste it in the installed Discretize package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\discretize\utils`
+
+4. Browse to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\cupyx` and replace `_init_.py` in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse` with `_init_.py` in folder `scipy-sparse-init`
+
+5. Replace `_init_.py` in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse\linalg` with `_init_.py` in folder `scipy-sparse-init/scipy-sparse-linalg-init`
 
 ## TODO
-- Add install instructions
 - Add references
+
