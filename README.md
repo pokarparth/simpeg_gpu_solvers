@@ -13,7 +13,7 @@ For a problem **AX=b** with **A** matrix of size (28564, 28564) and _b_ of size 
 
 Pardiso outperforms alternatives here. While matrix-vector products are faster on GPUs, much of the slowdown for PyTorch can be attributed to extremely slow matrix factorization using GPUs. As such, PyTorch solver can be useful in cases where matrix **A** does not change and large vector _b_ (large number of sources).
 
-CuPy accounts for the slow matrix factorization on GPU by purportedly doing LU factorization on CPU using SciPy's LU routines and doing the matrix-vector products on GPUs. However, it was significantly slower in the tests. I attribute the slower performance of CuPy and Pytorch here to the fact that the CuPy and Pytorch solver operations are not yet implemented for sparse matrices [1,2] and thus it factorizes a dense matrix. On the other hand, Pardiso and SimPEG solvers use sparse CSR matrices. 
+CuPy accounts for the slow matrix factorization on GPU by doing LU factorization on CPU using SciPy's LU routines and doing the matrix-vector products on GPUs. However, it was significantly slower in the tests. I attribute the slower performance of CuPy and Pytorch here to the fact that the CuPy and Pytorch solver operations are not yet implemented for sparse matrices [1,2] and thus it factorizes a dense matrix. On the other hand, Pardiso and SimPEG solvers use sparse CSR matrices. I am unsure about the reasons for the large discrepancy between the solve time for Pytorch and CuPy however.
 
 ### Installation instructions
 To run the project, follow these installation instructions:
