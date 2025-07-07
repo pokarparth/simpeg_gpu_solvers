@@ -16,6 +16,8 @@ Pardiso outperforms alternatives here. While matrix-vector products are faster o
 CuPy accounts for the slow matrix factorization on GPU by doing LU factorization on CPU using SciPy's LU routines and doing the matrix-vector products on GPUs. However, it was significantly slower in the tests. I attribute the slower performance of CuPy and Pytorch here to the fact that the CuPy and Pytorch solver operations are not yet implemented for sparse matrices [1,2] and thus it factorizes a dense matrix. On the other hand, Pardiso and SimPEG solvers use sparse CSR matrices. I am unsure about the reasons for the large discrepancy between the solve time for Pytorch and CuPy however.
 
 ### Installation instructions
+The install includes some monkey patching of code, as this is intended to be a quick point-in-time test. Please note the folder paths below carefully :) 
+
 To run the project, follow these installation instructions:
 
 1. Create a conda environment using the provided environment.yml file:
@@ -24,13 +26,13 @@ To run the project, follow these installation instructions:
     conda env create -f environment.yml
     ```
 
-2. Copy files `solver_utils_cupy.py` and `solver_utils_pytorch.py` from `simpeg_utils` folder and paste it in the installed SimPEG package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\SimPEG\utils`.
+2. From `simpeg_utils` folder, copy files `solver_utils_cupy.py` and `solver_utils_pytorch.py`. Paste it in the installed SimPEG package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\SimPEG\utils`.
 
-3. Copy the file `matrix_utils_cupy.py` from `discretize_edits` folder and paste it in the installed Discretize package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\discretize\utils`
+3. From `discretize_edits` folder, copy the file `matrix_utils_cupy.py'and paste it in the installed Discretize package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\discretize\utils`
 
-4. Browse to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\cupyx` and replace `_init_.py` in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse` with `_init_.py` in folder `scipy-sparse-init`
+4. From the main 'cupyx_edits' folder copy `_init_.py`. Overwrite `_init_.py` in the Cupyx-scipy-sparse folder located at `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\cupyx\scipy\sparse` with `_init_.py`.
 
-5. Replace `_init_.py` in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse\linalg` with `_init_.py` in folder `scipy-sparse-init/scipy-sparse-linalg-init`
+5. In the 'cupyx-edits' folder, browse to subfolder 'linalg' and copy `_init_.py`. Overwrite `_init_.py` this in the linalg subfolder of Cupy- scipy-sparse in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse\linalg`. 
 
 ### References
 [1] https://github.com/pytorch/pytorch/issues/69538
