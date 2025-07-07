@@ -30,9 +30,9 @@ To run the project, follow these installation instructions:
 
 3. From `discretize_edits` folder, copy the file `matrix_utils_cupy.py'and paste it in the installed Discretize package by browsing to `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\discretize\utils`
 
-4. From the main 'cupyx_edits' folder copy `_init_.py`. Overwrite `_init_.py` in the Cupyx-scipy-sparse folder located at `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\cupyx\scipy\sparse` with `_init_.py`.
+4. From the main `cupyx_edits` folder copy `_init_.py`. Overwrite `_init_.py` in the Cupyx-scipy-sparse folder located at `<your_conda_install_path>\envs\solvers-test\Lib\site-packages\cupyx\scipy\sparse` with `_init_.py`.
 
-5. In the 'cupyx-edits' folder, browse to subfolder 'linalg' and copy `_init_.py`. Overwrite `_init_.py` this in the linalg subfolder of Cupy- scipy-sparse in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse\linalg`. 
+5. In the `cupyx-edits` folder, browse to subfolder `inalg` and copy `_init_.py`. Overwrite `_init_.py` this in the linalg subfolder of your environment's Cupyx-scipy-sparse in `<your_conda_install_path>\envs\cupy\Lib\site-packages\cupyx\scipy\sparse\linalg`. 
 
 ### References
 [1] https://github.com/pytorch/pytorch/issues/69538
